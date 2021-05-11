@@ -4,7 +4,7 @@ stages:
     deps:
     - get_data.py
     outs:
-    - data_raw.csv  
+    - data_raw.csv
   process:
     cmd: python process_data.py
     deps:
@@ -22,3 +22,5 @@ stages:
     metrics:
     - metrics.json:
         cache: false
+
+  
