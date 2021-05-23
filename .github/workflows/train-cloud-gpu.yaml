@@ -20,7 +20,6 @@ jobs:
           --cloud-type=p3.2xlarge \
           --cloud-gpu=v100 \
           --single=true
-          --idle-timeout 120 \
           --labels=cml-runner
   model-training:
     needs: deploy-runner
