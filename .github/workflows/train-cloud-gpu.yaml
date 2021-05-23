@@ -22,7 +22,7 @@ jobs:
           --single=true
           --idle-timeout 120 \
           --labels=cml-runner
-  name: model-training
+  model-training:
     needs: deploy-runner
     runs-on: [self-hosted,cml-runner]
     container: docker://dvcorg/cml-py3:latest
