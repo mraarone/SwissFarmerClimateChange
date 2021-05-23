@@ -1,5 +1,5 @@
 name: "Train-in-the-cloud"
-on: [workflow-dispatch]
+on: [workflow_dispatch]
 
 jobs:
   deploy-runner:
