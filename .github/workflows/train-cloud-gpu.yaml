@@ -42,7 +42,7 @@ jobs:
         dvc pull data --run-cache
 
         # Train the model
-        python train.py
+        dvc repro
 
         # Publish report with CML
         cat metrics.txt > report.md
