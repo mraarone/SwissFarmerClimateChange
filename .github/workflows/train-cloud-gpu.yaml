@@ -30,8 +30,18 @@ jobs:
     - name: "Train my model"
       env:
         repo_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
       run: |
+        # Install requirements
         pip install -r requirements.txt
+        
+        # Provide local secret for Azure Connection String
+        dvc remote modify --local azuredata connection_string ''
+
+        # Pull data & run-cache from S3 and reproduce pipeline
+        dvc pull data --run-cache
+
+        # Train the model
         python train.py
 
         # Publish report with CML
