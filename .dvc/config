@@ -1,4 +1,4 @@
 [core]
-    remote = myremote
-['remote "myremote"']
-    url = gdrive://1-OcfDnBwoYws8bwcr7SRW59KUJLOxJx6
+    remote = azuredata
+['remote "azuredata"']
+    url = azure://data
