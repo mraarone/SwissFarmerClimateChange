@@ -37,7 +37,7 @@ jobs:
         # Provide local secret for Azure Connection String
         dvc remote modify --local azuredata connection_string ''
 
-        # Pull data & run-cache from S3 and reproduce pipeline
+        # Pull with get_data & run-cache from S3 and reproduce pipeline
         dvc pull get_data --run-cache
 
         # Train the model
