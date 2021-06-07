@@ -39,7 +39,7 @@ jobs:
         dvc remote modify --local azuredata connection_string ''
 
         # Pull data & run-cache from S3 and reproduce pipeline
-        dvc pull data --run-cache
+        dvc pull azuredata --run-cache
 
         # Train the model
         dvc repro
