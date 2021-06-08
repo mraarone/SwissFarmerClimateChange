@@ -44,5 +44,5 @@ jobs:
         dvc repro
 
         # Publish report with CML
-        cat metrics.txt > report.md
+        cat metrics.json > report.md
         cml-send-comment report.md
