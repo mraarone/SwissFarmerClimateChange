@@ -44,14 +44,16 @@ jobs:
         dvc repro
         
         # Push new data to the repository, may require permissions, so commenting for now.
-        #dvc push
+        dvc push
 
+        # Get main metrics for differential.
         git fetch --prune
 
         # Add differential of branch metrics from main to the report
-        dvc metrics diff --show-md main > report.md
+        echo "## Metrics and Differential from Main Branch" > report.md
+        dvc metrics diff --show-md main >> report.md
 
-        echo "## Validating results by region"
+        echo "## Validating results by region" >> report.md
         
         # Add figure to the report
         cml-publish by_region.png --md >> report.md
