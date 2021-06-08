@@ -1,5 +1,5 @@
 name: "Train-in-the-cloud"
-on: [workflow_dispatch]
+on: [pull_request]
 
 jobs:
   deploy-runner:
@@ -43,6 +43,15 @@ jobs:
         # Train the model
         dvc repro
 
+        git fetch --prune
+
+        # Add differential of branch metrics from main to the report
+        dvc metrics diff --show-md main > report.md
+
+        echo "## Validating results by region"
+        
+        # Add figure to the report
+        cml-publish by_region.png --md >> report.md
+        
         # Publish report with CML
-        cat metrics.json > report.md
         cml-send-comment report.md
