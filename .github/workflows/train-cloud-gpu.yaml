@@ -42,6 +42,9 @@ jobs:
 
         # Train the model
         dvc repro
+        
+        # Push new data to the repository, may require permissions, so commenting for now.
+        #dvc push
 
         git fetch --prune
 
